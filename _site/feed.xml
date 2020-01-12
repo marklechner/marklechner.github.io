@@ -1,4 +1,84 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-01-02T11:16:11-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/jekyll/update/2020/01/01/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2020-01-01T16:43:59-05:00</published><updated>2020-01-01T16:43:59-05:00</updated><id>http://localhost:4000/jekyll/update/2020/01/01/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2020/01/01/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-01-12T17:18:53-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mark Lechner</title><subtitle>Recipes for Tech and Kitchen</subtitle><entry><title type="html">Setting up VPN for HTB</title><link href="http://localhost:4000/tech/2020/01/03/htb-vpn.html" rel="alternate" type="text/html" title="Setting up VPN for HTB" /><published>2020-01-03T12:00:00-05:00</published><updated>2020-01-03T12:00:00-05:00</updated><id>http://localhost:4000/tech/2020/01/03/htb-vpn</id><content type="html" xml:base="http://localhost:4000/tech/2020/01/03/htb-vpn.html">&lt;h2 id=&quot;enable-and-set-up-ssh&quot;&gt;Enable and set up ssh&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;With Kali running on virtualbox you can now download the VPN connection pack via https://www.hackthebox.eu/home/htb/access/ovpnfile&lt;/li&gt;
+  &lt;li&gt;I downloaded it via my host and then used scp to make it available on Kali: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;scp myuser.ovpn root@192.168.56.4:/root/Desktop/HTB/&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Once there I used the following command on Kali which has openvpn preinstalled to connect to HTB lab environment: `openvpn myuser.ovpn&lt;/li&gt;
+  &lt;li&gt;Now one can see the hosts available via https://www.hackthebox.eu/home/machines&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">Enable and set up ssh With Kali running on virtualbox you can now download the VPN connection pack via https://www.hackthebox.eu/home/htb/access/ovpnfile I downloaded it via my host and then used scp to make it available on Kali: scp myuser.ovpn root@192.168.56.4:/root/Desktop/HTB/ Once there I used the following command on Kali which has openvpn preinstalled to connect to HTB lab environment: `openvpn myuser.ovpn Now one can see the hosts available via https://www.hackthebox.eu/home/machines</summary></entry><entry><title type="html">Setting up Kali</title><link href="http://localhost:4000/tech/2020/01/03/kali-setup.html" rel="alternate" type="text/html" title="Setting up Kali" /><published>2020-01-03T12:00:00-05:00</published><updated>2020-01-03T12:00:00-05:00</updated><id>http://localhost:4000/tech/2020/01/03/kali-setup</id><content type="html" xml:base="http://localhost:4000/tech/2020/01/03/kali-setup.html">&lt;h2 id=&quot;enable-and-set-up-ssh&quot;&gt;Enable and set up ssh&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Download kali image&lt;/li&gt;
+  &lt;li&gt;Download and install virtualbox&lt;/li&gt;
+  &lt;li&gt;Create new VM and choose debian&lt;/li&gt;
+  &lt;li&gt;Allocate memory (go for 4gb if you can) and static disk (min 20gb but go for 30gb if you can)&lt;/li&gt;
+  &lt;li&gt;Before installing image make sure to add secondary network adapter (hostonly)&lt;/li&gt;
+  &lt;li&gt;Install Kali&lt;/li&gt;
+  &lt;li&gt;Verify secondary interface eth1 is up and has ip assigned to it by running &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ip addr&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Change root passowrd by running &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo passwd&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Install/update openssh-server (might not be necesarry): &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;apt-get install openssh-server&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Setup persistency
+    &lt;ul&gt;
+      &lt;li&gt;remove levels: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;update-rc.d -f ssh remove&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;add default run level: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;update-rc.d -f ssh defaults&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;replace default keys with newly generated set
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mkdir /etc/ssh/default_keys_bkp&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mv /etc/ssh/ssh_host_* /etc/ssh/default_keys_bkp/&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dpkg-reconfigure openssh-server&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;ensure PermitgRootLogin is set to yes in /etc/ssh/sshd_config&lt;/li&gt;
+  &lt;li&gt;restart ssh: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo service ssh restart&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;ensure ssh starts automatically upon boot: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;update-rc.d -f ssh enable 2 3 4 5&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;set-up-key-authentication-optional&quot;&gt;Set up key authentication (optional)&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;on kali: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mkdir /root/.ssh&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;on host machine generate keypair unless you have ~/.ssh/id_rsa.pub in place already: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ssh-keygen -t rsa&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;then copy your public key over to authorized_hosts:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;scp ~/.ssh/id_rsa.pub root@&amp;lt;kali_ip&amp;gt;:/root/.ssh/authorized_keys&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;set-up-burp&quot;&gt;Set up Burp&lt;/h2&gt;
+&lt;h3 id=&quot;disable-detectportalfirefoxcom&quot;&gt;Disable detectportal.firefox.com&lt;/h3&gt;
+&lt;p&gt;This is to avoid noise form detectportal to pollute our intercept&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;enter about:config in searchbar&lt;/li&gt;
+  &lt;li&gt;look or search for network.captive-portal-service.enabled and set it to false&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;enable-proxy&quot;&gt;Enable proxy&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;enter about:preferences in searchbar&lt;/li&gt;
+  &lt;li&gt;select network settings&lt;/li&gt;
+  &lt;li&gt;manual proxy configuration&lt;/li&gt;
+  &lt;li&gt;use 127.0.0.1 with port 8080 for HTTP proxy&lt;/li&gt;
+  &lt;li&gt;also enable it for all other protocols&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;install-burp-ca-cert&quot;&gt;Install Burp CA Cert&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;With Burp running, visit http://burp in your browser and click the “CA Certificate” link to download and save your Burp CA certificate&lt;/li&gt;
+  &lt;li&gt;Go to “Privacy and Security” / “View Certificates”&lt;/li&gt;
+  &lt;li&gt;Select the “Authorities” tabClick “Import”, select the Burp CA certificate file that you previously saved and click “Open”&lt;/li&gt;
+  &lt;li&gt;In the dialog box that pops up, check the box “Trust this CA to identify web sites”, and click “OK”.&lt;/li&gt;
+  &lt;li&gt;Close all dialogs and restart Firefox.&lt;/li&gt;
+  &lt;li&gt;If everything has worked, you should now be able to visit any HTTPS URL via Burp without any security warnings&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;common-issue&quot;&gt;Common issue&lt;/h2&gt;
+&lt;h3 id=&quot;kali-connectivity-issues&quot;&gt;Kali Connectivity Issues&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;symptoms: no internet connection, ssh timing out&lt;/li&gt;
+  &lt;li&gt;possible cause: eth0 (NAT) or eth1 (hostonly) interfaces do not have IP assigned&lt;/li&gt;
+  &lt;li&gt;verify: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ifconfig&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;fix: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dhclient eth0&lt;/code&gt; and/or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dhclient eth1&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">Enable and set up ssh Download kali image Download and install virtualbox Create new VM and choose debian Allocate memory (go for 4gb if you can) and static disk (min 20gb but go for 30gb if you can) Before installing image make sure to add secondary network adapter (hostonly) Install Kali Verify secondary interface eth1 is up and has ip assigned to it by running ip addr Change root passowrd by running sudo passwd Install/update openssh-server (might not be necesarry): apt-get install openssh-server Setup persistency remove levels: update-rc.d -f ssh remove add default run level: update-rc.d -f ssh defaults replace default keys with newly generated set mkdir /etc/ssh/default_keys_bkp mv /etc/ssh/ssh_host_* /etc/ssh/default_keys_bkp/ dpkg-reconfigure openssh-server ensure PermitgRootLogin is set to yes in /etc/ssh/sshd_config restart ssh: sudo service ssh restart ensure ssh starts automatically upon boot: update-rc.d -f ssh enable 2 3 4 5</summary></entry><entry><title type="html">Sourdough Bread</title><link href="http://localhost:4000/recipes/2020/01/02/bread-recipe.html" rel="alternate" type="text/html" title="Sourdough Bread" /><published>2020-01-02T12:40:00-05:00</published><updated>2020-01-02T12:40:00-05:00</updated><id>http://localhost:4000/recipes/2020/01/02/bread-recipe</id><content type="html" xml:base="http://localhost:4000/recipes/2020/01/02/bread-recipe.html">&lt;p&gt;This is for two pizzas&lt;/p&gt;</content><author><name></name></author><summary type="html">This is for two pizzas</summary></entry><entry><title type="html">Lasagne</title><link href="http://localhost:4000/recipes/2020/01/02/lasagne-recipe.html" rel="alternate" type="text/html" title="Lasagne" /><published>2020-01-02T12:40:00-05:00</published><updated>2020-01-02T12:40:00-05:00</updated><id>http://localhost:4000/recipes/2020/01/02/lasagne-recipe</id><content type="html" xml:base="http://localhost:4000/recipes/2020/01/02/lasagne-recipe.html">&lt;p&gt;This is for two pizzas&lt;/p&gt;</content><author><name></name></author><summary type="html">This is for two pizzas</summary></entry><entry><title type="html">Sourdough Pizza</title><link href="http://localhost:4000/recipes/2020/01/02/pizza-recipe.html" rel="alternate" type="text/html" title="Sourdough Pizza" /><published>2020-01-02T12:40:00-05:00</published><updated>2020-01-02T12:40:00-05:00</updated><id>http://localhost:4000/recipes/2020/01/02/pizza-recipe</id><content type="html" xml:base="http://localhost:4000/recipes/2020/01/02/pizza-recipe.html">&lt;p&gt;This is for two pizzas&lt;/p&gt;</content><author><name></name></author><summary type="html">This is for two pizzas</summary></entry><entry><title type="html">Jekyll getting started</title><link href="http://localhost:4000/tech/2020/01/01/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Jekyll getting started" /><published>2020-01-01T16:43:59-05:00</published><updated>2020-01-01T16:43:59-05:00</updated><id>http://localhost:4000/tech/2020/01/01/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/tech/2020/01/01/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
 
 &lt;p&gt;Jekyll requires blog post files to be named according to the following format:&lt;/p&gt;
 

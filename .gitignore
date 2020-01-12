@@ -30,3 +30,6 @@ Gemfile.lock
 
 #cname while hosted on githubpages
 CNAME
+
+#my drafts
+drafts/

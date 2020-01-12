@@ -1,0 +1,15 @@
+---
+layout: post
+title:  "Setting up VPN for HTB"
+date:   2020-01-03 12:00:00 -0500
+categories: tech 
+---
+
+## Enable and set up ssh
+* With Kali running on virtualbox you can now download the VPN connection pack via https://www.hackthebox.eu/home/htb/access/ovpnfile
+* I downloaded it via my host and then used scp to make it available on Kali: `scp myuser.ovpn root@192.168.56.4:/root/Desktop/HTB/`
+* Once there I used the following command on Kali which has openvpn preinstalled to connect to HTB lab environment: `openvpn myuser.ovpn
+* Now one can see the hosts available via https://www.hackthebox.eu/home/machines
+
+
+
