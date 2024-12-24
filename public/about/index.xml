@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Abouts on mark lechner</title>
+    <link>http://localhost:1313/about/</link>
+    <description>Recent content in Abouts on mark lechner</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 23 Dec 2024 22:52:53 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/about/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About</title>
+      <link>http://localhost:1313/about/about/</link>
+      <pubDate>Mon, 23 Dec 2024 22:52:53 +0100</pubDate>
+      <guid>http://localhost:1313/about/about/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m a senior technology leader with over 15 years of experience spanning cybersecurity, cloud infrastructure, and digital transformation. Originally from Hungary, my journey took me to Canada where I spent 9 years building my career before settling in Germany in 2020.&lt;/p&gt;&#xA;&lt;p&gt;Currently serving as CISO at DeepOpinion, I&amp;rsquo;ve had the privilege of leading global teams and driving security initiatives at organizations like Bitpanda, Solaris Bank, and Morgan Stanley.&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;m interested and experienced in building and scaling robust security cultures while enabling business growth. Throughout my career, I&amp;rsquo;ve focused on transforming traditional infrastructure into cloud-native environments, implementing zero-trust security frameworks, and fostering &amp;ldquo;you build it, you own it&amp;rdquo; operational models that empower engineering teams.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

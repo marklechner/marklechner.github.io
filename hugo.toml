@@ -1,0 +1,70 @@
+baseurl = "http://www.example.com"
+title = "marklechner"
+theme = "hugo-coder"
+languagecode = "en"
+defaultcontentlanguage = "en"
+
+[pagination]
+pagerSize = 20
+
+[services]
+[services.disqus]
+shortname = "marklechner"
+
+[markup.highlight]
+style = "github-dark"
+
+[params]
+  author = "Mark Lechner"
+  info = "Security-Focused Technology Leader"
+  description = "Mark Lechner's website"
+  keywords = "blog,security,llm,personal"
+  avatarurl = "images/avatar.jpeg"
+  #gravatar = "john.doe@example.com"
+
+  faviconSVG = "/img/favicon.ico"
+  favicon_32 = "/img/favicon-32x32.png"
+  favicon_16 = "/img/favicon-16x16.png"
+
+  since = 2024
+
+  enableTwemoji = true
+
+  colorScheme = "auto"
+  hidecolorschemetoggle = false
+
+  # customCSS = ["css/custom.css"]
+  # customSCSS = ["scss/custom.scss"]
+  # customJS = ["js/custom.js"]
+
+[taxonomies]
+  category = "categories"
+  series = "series"
+  tag = "tags"
+  author = "authors"
+
+# Social links
+[[params.social]]
+  name = "Github"
+  icon = "fa-brands fa-github fa-2x"
+  weight = 1
+  url = "https://github.com/marklechner"
+[[params.social]]
+  name = "LinkedIn"
+  icon = "fa-brands fa-linkedin fa-2x"
+  weight = 2
+  url = "https://www.linkedin.com/in/mark-lechner/"
+
+# Menu links
+[[menu.main]]
+  name = "About"
+  weight = 1
+  url = "about/"
+[[menu.main]]
+  name = "Projects"
+  weight = 2
+  url = "projects/"
+[[menu.main]]
+  name = "Posts"
+  weight = 3
+  url  = "posts/"
