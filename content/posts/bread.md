@@ -11,7 +11,7 @@ externalLink = ""
 series = []
 +++
 
-{{< figure src="/images/bread.JPG" alt="bread" caption="bread" width="600px" >}}
+{{< figure src="/images/bread.jpg" alt="bread" caption="bread" width="600px" >}}
 
 | Version | 1.3 |
 | :---- | :---- |
