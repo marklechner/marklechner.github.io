@@ -23,8 +23,8 @@ style = "github-dark"
   #gravatar = "john.doe@example.com"
 
   faviconSVG = "/img/favicon.ico"
-  favicon_32 = "/img/favicon-32x32.png"
-  favicon_16 = "/img/favicon-16x16.png"
+  #favicon_32 = "/img/favicon-32x32.png"
+  #favicon_16 = "/img/favicon-16x16.png"
 
   since = 2024
 
@@ -54,6 +54,11 @@ style = "github-dark"
   icon = "fa-brands fa-linkedin fa-2x"
   weight = 2
   url = "https://www.linkedin.com/in/mark-lechner/"
+[[params.social]]
+  name = "Bluesky"
+  icon = "fa-brands fa-bluesky fa-2x"
+  weight = 2
+  url = "https://bsky.app/profile/marklechner.dev"
 
 # Menu links
 [[menu.main]]

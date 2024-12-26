@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on marklechner</title>
-    <link>http://localhost:1313/posts/</link>
-    <description>Recent content in Posts on marklechner</description>
+    <title>Howto on marklechner</title>
+    <link>http://localhost:1313/categories/howto/</link>
+    <description>Recent content in Howto on marklechner</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Thu, 26 Dec 2024 13:53:31 +0100</lastBuildDate>
-    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/categories/howto/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ollama extended context window</title>
       <link>http://localhost:1313/posts/ollamactx/</link>

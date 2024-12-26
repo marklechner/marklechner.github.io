@@ -1,20 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on marklechner</title>
-    <link>http://localhost:1313/posts/</link>
-    <description>Recent content in Posts on marklechner</description>
+    <title>Bread on marklechner</title>
+    <link>http://localhost:1313/categories/bread/</link>
+    <description>Recent content in Bread on marklechner</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 26 Dec 2024 13:53:31 +0100</lastBuildDate>
-    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Ollama extended context window</title>
-      <link>http://localhost:1313/posts/ollamactx/</link>
-      <pubDate>Thu, 26 Dec 2024 13:53:31 +0100</pubDate>
-      <guid>http://localhost:1313/posts/ollamactx/</guid>
-      <description>&lt;h2 id=&#34;ollama-configuration-for-larger-context-windows&#34;&gt;&#xA;  Ollama Configuration for Larger Context Windows&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#ollama-configuration-for-larger-context-windows&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;By default, Ollama templates are configured with a context window of 2048 tokens. However, this can be quite small when analyzing larger sets of data. It is highly recommended to extend this context window for better performance with tools like I&amp;rsquo;m working on such as PRIscope or Raven.&lt;/p&gt;&#xA;&lt;h3 id=&#34;to-increase-the-context-window-size&#34;&gt;&#xA;  To increase the context window size:&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#to-increase-the-context-window-size&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;Generate the model config:&lt;/p&gt;</description>
-    </item>
+    <lastBuildDate>Tue, 24 Dec 2024 14:07:43 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/bread/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Bread</title>
       <link>http://localhost:1313/posts/bread/</link>
