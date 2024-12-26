@@ -5,8 +5,8 @@ title = "Bread"
 description = ""
 slug = ""
 authors = []
-tags = []
-categories = []
+tags = ["howto","recipe","bread"]
+categories = ["howto","recipe","bread"]
 externalLink = ""
 series = []
 +++
