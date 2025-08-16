@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2025-08-16T14:00:00+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/projects/mcpgw/</loc>
+    <lastmod>2025-08-16T14:00:00+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/projects/</loc>
+    <lastmod>2025-08-16T14:00:00+01:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/categories/</loc>
     <lastmod>2024-12-26T13:53:31+01:00</lastmod>
   </url><url>
@@ -15,9 +24,6 @@
     <lastmod>2024-12-26T13:53:31+01:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/llm/</loc>
-    <lastmod>2024-12-26T13:53:31+01:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/</loc>
     <lastmod>2024-12-26T13:53:31+01:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/ollamactx/</loc>
@@ -46,9 +52,6 @@
   </url><url>
     <loc>http://localhost:1313/about/</loc>
     <lastmod>2024-12-23T22:52:53+01:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/projects/</loc>
-    <lastmod>2024-12-17T18:00:00+01:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/projects/raven/</loc>
     <lastmod>2024-12-17T18:00:00+01:00</lastmod>

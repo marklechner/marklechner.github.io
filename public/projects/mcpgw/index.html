@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  MCP Gateway · marklechner
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Mark Lechner">
+<meta name="description" content="flowchart LR
+    %% Left: Clients
+    subgraph A [&#34; &#34;]
+        subgraph Clients [&#34;🖥️ Clients&#34;]
+            C1[Web Application]
+            C2[Mobile App] 
+            C3[CLI Tool]
+            C4[API Client]
+        end
+    end
+    
+    %% Middle: MCP Gateway
+    subgraph B [&#34; &#34;]
+        subgraph Gateway [&#34;🛡️ MCP Gateway&#34;]
+            AUTH[Authentication]
+            RATE[Rate Limiting]
+            VALID[Request Validation]
+            POLICY[Policy Enforcement]
+            PROXY[Request Proxy]
+            SANIT[Response Sanitization]
+            AUDIT[Audit Logging]
+        end
+    end
+    
+    %% Right: MCP Servers
+    subgraph C [&#34; &#34;]
+        subgraph Servers [&#34;🔧 MCP Servers&#34;]
+            S1[Weather Server]
+            S2[Database Server]
+            S3[AI Tools Server]
+            S4[External APIs]
+        end
+    end
+    
+    %% Flow: Left to Middle to Right
+    A --&gt; B
+    B --&gt; C
+    
+    %% Hide the wrapper subgraph borders
+    style A fill:transparent,stroke:transparent
+    style B fill:transparent,stroke:transparent  
+    style C fill:transparent,stroke:transparent
+    
+    %% Style the components
+    style AUTH fill:#4a90e2,stroke:#ffffff,stroke-width:2px,color:#ffffff
+    style RATE fill:#7b68ee,stroke:#ffffff,stroke-width:2px,color:#ffffff
+    style VALID fill:#50c878,stroke:#ffffff,stroke-width:2px,color:#ffffff
+    style POLICY fill:#ffa500,stroke:#ffffff,stroke-width:2px,color:#ffffff
+    style PROXY fill:#ff6b6b,stroke:#ffffff,stroke-width:2px,color:#ffffff
+    style AUDIT fill:#98fb98,stroke:#ffffff,stroke-width:2px,color:#000000
+    style SANIT fill:#40e0d0,stroke:#ffffff,stroke-width:2px,color:#ffffff
+
+  A Security-Focused Gateway for Model Context Protocol Servers
+  
+    
+    Link to heading
+  
+
+
+  The Challenge
+  
+    
+    Link to heading
+  
+
+As AI applications become increasingly sophisticated, they rely heavily on external tools and data sources through protocols like the Model Context Protocol (MCP). While MCP enables powerful integrations between AI systems and various services, it also introduces significant security challenges. Direct connections between AI clients and MCP servers can expose sensitive data, lack proper access controls, and create potential attack vectors for malicious actors.">
+<meta name="keywords" content="blog,security,llm,personal">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="MCP Gateway">
+  <meta name="twitter:description" content="flowchart LR %% Left: Clients subgraph A [&#34; &#34;] subgraph Clients [&#34;🖥️ Clients&#34;] C1[Web Application] C2[Mobile App] C3[CLI Tool] C4[API Client] end end %% Middle: MCP Gateway subgraph B [&#34; &#34;] subgraph Gateway [&#34;🛡️ MCP Gateway&#34;] AUTH[Authentication] RATE[Rate Limiting] VALID[Request Validation] POLICY[Policy Enforcement] PROXY[Request Proxy] SANIT[Response Sanitization] AUDIT[Audit Logging] end end %% Right: MCP Servers subgraph C [&#34; &#34;] subgraph Servers [&#34;🔧 MCP Servers&#34;] S1[Weather Server] S2[Database Server] S3[AI Tools Server] S4[External APIs] end end %% Flow: Left to Middle to Right A --&gt; B B --&gt; C %% Hide the wrapper subgraph borders style A fill:transparent,stroke:transparent style B fill:transparent,stroke:transparent style C fill:transparent,stroke:transparent %% Style the components style AUTH fill:#4a90e2,stroke:#ffffff,stroke-width:2px,color:#ffffff style RATE fill:#7b68ee,stroke:#ffffff,stroke-width:2px,color:#ffffff style VALID fill:#50c878,stroke:#ffffff,stroke-width:2px,color:#ffffff style POLICY fill:#ffa500,stroke:#ffffff,stroke-width:2px,color:#ffffff style PROXY fill:#ff6b6b,stroke:#ffffff,stroke-width:2px,color:#ffffff style AUDIT fill:#98fb98,stroke:#ffffff,stroke-width:2px,color:#000000 style SANIT fill:#40e0d0,stroke:#ffffff,stroke-width:2px,color:#ffffff A Security-Focused Gateway for Model Context Protocol Servers Link to heading The Challenge Link to heading As AI applications become increasingly sophisticated, they rely heavily on external tools and data sources through protocols like the Model Context Protocol (MCP). While MCP enables powerful integrations between AI systems and various services, it also introduces significant security challenges. Direct connections between AI clients and MCP servers can expose sensitive data, lack proper access controls, and create potential attack vectors for malicious actors.">
+
+<meta property="og:url" content="http://localhost:1313/projects/mcpgw/">
+  <meta property="og:site_name" content="marklechner">
+  <meta property="og:title" content="MCP Gateway">
+  <meta property="og:description" content="flowchart LR %% Left: Clients subgraph A [&#34; &#34;] subgraph Clients [&#34;🖥️ Clients&#34;] C1[Web Application] C2[Mobile App] C3[CLI Tool] C4[API Client] end end %% Middle: MCP Gateway subgraph B [&#34; &#34;] subgraph Gateway [&#34;🛡️ MCP Gateway&#34;] AUTH[Authentication] RATE[Rate Limiting] VALID[Request Validation] POLICY[Policy Enforcement] PROXY[Request Proxy] SANIT[Response Sanitization] AUDIT[Audit Logging] end end %% Right: MCP Servers subgraph C [&#34; &#34;] subgraph Servers [&#34;🔧 MCP Servers&#34;] S1[Weather Server] S2[Database Server] S3[AI Tools Server] S4[External APIs] end end %% Flow: Left to Middle to Right A --&gt; B B --&gt; C %% Hide the wrapper subgraph borders style A fill:transparent,stroke:transparent style B fill:transparent,stroke:transparent style C fill:transparent,stroke:transparent %% Style the components style AUTH fill:#4a90e2,stroke:#ffffff,stroke-width:2px,color:#ffffff style RATE fill:#7b68ee,stroke:#ffffff,stroke-width:2px,color:#ffffff style VALID fill:#50c878,stroke:#ffffff,stroke-width:2px,color:#ffffff style POLICY fill:#ffa500,stroke:#ffffff,stroke-width:2px,color:#ffffff style PROXY fill:#ff6b6b,stroke:#ffffff,stroke-width:2px,color:#ffffff style AUDIT fill:#98fb98,stroke:#ffffff,stroke-width:2px,color:#000000 style SANIT fill:#40e0d0,stroke:#ffffff,stroke-width:2px,color:#ffffff A Security-Focused Gateway for Model Context Protocol Servers Link to heading The Challenge Link to heading As AI applications become increasingly sophisticated, they rely heavily on external tools and data sources through protocols like the Model Context Protocol (MCP). While MCP enables powerful integrations between AI systems and various services, it also introduces significant security challenges. Direct connections between AI clients and MCP servers can expose sensitive data, lack proper access controls, and create potential attack vectors for malicious actors.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="projects">
+    <meta property="article:published_time" content="2025-08-16T14:00:00+01:00">
+    <meta property="article:modified_time" content="2025-08-16T14:00:00+01:00">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/projects/mcpgw/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/img/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: 'dark',
+      themeVariables: {
+        primaryColor: '#4a90e2',
+        primaryTextColor: '#ffffff',
+        primaryBorderColor: '#ffffff',
+        lineColor: '#ffffff',
+        sectionBkgColor: '#2d3748',
+        altSectionBkgColor: '#4a5568',
+        gridColor: '#718096',
+        secondaryColor: '#68d391',
+        tertiaryColor: '#ffffff',
+        background: '#1a202c',
+        mainBkg: '#2d3748',
+        secondBkg: '#4a5568',
+        tertiaryBkg: '#718096'
+      }
+    });
+    
+    
+    document.querySelectorAll('pre code.language-mermaid').forEach(function(element) {
+      const graphDefinition = element.textContent;
+      const graphDiv = document.createElement('div');
+      graphDiv.className = 'mermaid';
+      graphDiv.textContent = graphDefinition;
+      element.parentNode.replaceWith(graphDiv);
+    });
+    
+    mermaid.run();
+  });
+</script>
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      marklechner
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Posts</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container page">
+  <article>
+    <header>
+      <h1 class="title">
+        <a class="title-link" href="http://localhost:1313/projects/mcpgw/">
+          MCP Gateway
+        </a>
+      </h1>
+    </header>
+
+    <pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">flowchart LR
+    %% Left: Clients
+    subgraph A [&#34; &#34;]
+        subgraph Clients [&#34;🖥️ Clients&#34;]
+            C1[Web Application]
+            C2[Mobile App] 
+            C3[CLI Tool]
+            C4[API Client]
+        end
+    end
+    
+    %% Middle: MCP Gateway
+    subgraph B [&#34; &#34;]
+        subgraph Gateway [&#34;🛡️ MCP Gateway&#34;]
+            AUTH[Authentication]
+            RATE[Rate Limiting]
+            VALID[Request Validation]
+            POLICY[Policy Enforcement]
+            PROXY[Request Proxy]
+            SANIT[Response Sanitization]
+            AUDIT[Audit Logging]
+        end
+    end
+    
+    %% Right: MCP Servers
+    subgraph C [&#34; &#34;]
+        subgraph Servers [&#34;🔧 MCP Servers&#34;]
+            S1[Weather Server]
+            S2[Database Server]
+            S3[AI Tools Server]
+            S4[External APIs]
+        end
+    end
+    
+    %% Flow: Left to Middle to Right
+    A --&gt; B
+    B --&gt; C
+    
+    %% Hide the wrapper subgraph borders
+    style A fill:transparent,stroke:transparent
+    style B fill:transparent,stroke:transparent  
+    style C fill:transparent,stroke:transparent
+    
+    %% Style the components
+    style AUTH fill:#4a90e2,stroke:#ffffff,stroke-width:2px,color:#ffffff
+    style RATE fill:#7b68ee,stroke:#ffffff,stroke-width:2px,color:#ffffff
+    style VALID fill:#50c878,stroke:#ffffff,stroke-width:2px,color:#ffffff
+    style POLICY fill:#ffa500,stroke:#ffffff,stroke-width:2px,color:#ffffff
+    style PROXY fill:#ff6b6b,stroke:#ffffff,stroke-width:2px,color:#ffffff
+    style AUDIT fill:#98fb98,stroke:#ffffff,stroke-width:2px,color:#000000
+    style SANIT fill:#40e0d0,stroke:#ffffff,stroke-width:2px,color:#ffffff
+</code></pre><h2 id="a-security-focused-gateway-for-model-context-protocol-servers">
+  A Security-Focused Gateway for Model Context Protocol Servers
+  <a class="heading-link" href="#a-security-focused-gateway-for-model-context-protocol-servers">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="the-challenge">
+  The Challenge
+  <a class="heading-link" href="#the-challenge">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>As AI applications become increasingly sophisticated, they rely heavily on external tools and data sources through protocols like the Model Context Protocol (MCP). While MCP enables powerful integrations between AI systems and various services, it also introduces significant security challenges. Direct connections between AI clients and MCP servers can expose sensitive data, lack proper access controls, and create potential attack vectors for malicious actors.</p>
+<p>Traditional approaches often leave organizations with a difficult choice: either restrict AI capabilities to maintain security, or accept increased risk to unlock the full potential of their AI systems.</p>
+<h3 id="the-solution">
+  The Solution
+  <a class="heading-link" href="#the-solution">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>MCP Gateway addresses this challenge by providing a lightweight, security-focused intermediary service that sits between MCP clients and servers. It acts as a intelligent proxy that enforces security policies while maintaining the flexibility and power of MCP integrations.</p>
+<p>The gateway&rsquo;s core functionality includes:</p>
+<ul>
+<li><strong>Authentication &amp; Authorization</strong>: Token-based authentication with granular, per-client security policies</li>
+<li><strong>Request Validation</strong>: Validates all requests against allowed tools and resources before forwarding</li>
+<li><strong>Rate Limiting</strong>: Implements token bucket algorithms to prevent abuse and ensure fair resource usage</li>
+<li><strong>Response Sanitization</strong>: Automatically removes sensitive information from responses</li>
+<li><strong>Audit Logging</strong>: Comprehensive logging of all requests and responses for security monitoring</li>
+<li><strong>Policy Enforcement</strong>: Configurable security policies that can be tailored to each client&rsquo;s needs</li>
+</ul>
+<h3 id="why-i-built-it">
+  Why I Built It
+  <a class="heading-link" href="#why-i-built-it">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>During my work with AI systems and security architecture, I&rsquo;ve observed a growing gap between the security requirements of enterprise environments and the capabilities offered by emerging AI protocols. While MCP provides excellent functionality for AI tool integration, it lacks the enterprise-grade security controls that organizations need.</p>
+<p>MCP Gateway represents my attempt to bridge this gap by providing a production-ready security layer that doesn&rsquo;t compromise on functionality. It&rsquo;s designed to be simple enough for individual developers to deploy locally, yet robust enough to handle enterprise-scale deployments with multiple clients and strict security requirements.</p>
+<h3 id="technical-architecture">
+  Technical Architecture
+  <a class="heading-link" href="#technical-architecture">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The gateway implements a defense-in-depth security model with multiple layers of protection:</p>
+<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">sequenceDiagram
+    participant Client
+    participant Gateway
+    participant MCPServer as MCP Server
+    
+    Client-&gt;&gt;Gateway: 1. HTTP Request + Bearer Token
+    Gateway-&gt;&gt;Gateway: 2. Authenticate Token
+    Gateway-&gt;&gt;Gateway: 3. Check Rate Limits
+    Gateway-&gt;&gt;Gateway: 4. Validate Against Policy
+    Gateway-&gt;&gt;MCPServer: 5. Forward Valid Request
+    MCPServer-&gt;&gt;Gateway: 6. Return Response
+    Gateway-&gt;&gt;Gateway: 7. Sanitize Response
+    Gateway-&gt;&gt;Gateway: 8. Log Transaction
+    Gateway-&gt;&gt;Client: 9. Return Sanitized Response
+    
+    Note over Gateway: Security Layers:&lt;br/&gt;• Authentication&lt;br/&gt;• Rate Limiting&lt;br/&gt;• Policy Validation&lt;br/&gt;• Response Sanitization&lt;br/&gt;• Audit Logging
+</code></pre><p>Each client receives a unique security policy that defines:</p>
+<ul>
+<li>Allowed tools and resources (whitelist approach)</li>
+<li>Rate limiting thresholds</li>
+<li>Request size limits</li>
+<li>CORS origins</li>
+<li>Authentication requirements</li>
+</ul>
+<h3 id="current-state">
+  Current State
+  <a class="heading-link" href="#current-state">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>MCP Gateway is currently available as an open-source project built with FastAPI and Python. The system has been designed with production deployment in mind, featuring:</p>
+<ul>
+<li><strong>Stateless Architecture</strong>: Enables horizontal scaling and load balancing</li>
+<li><strong>Configurable Policies</strong>: JSON-based security policies that can be customized per client</li>
+<li><strong>Comprehensive Logging</strong>: Structured audit logs for security monitoring and compliance</li>
+<li><strong>Health Monitoring</strong>: Built-in health checks and monitoring endpoints</li>
+<li><strong>Development-Friendly</strong>: Easy local setup with minimal dependencies</li>
+</ul>
+<p>The project includes comprehensive documentation, example configurations, and a test suite to help organizations evaluate and deploy the gateway in their environments.</p>
+<h3 id="security-features">
+  Security Features
+  <a class="heading-link" href="#security-features">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The gateway implements several key security patterns:</p>
+<p><strong>Authentication</strong>: Bearer token-based authentication with client-specific tokens and policies
+<strong>Authorization</strong>: Granular access control based on tools, resources, and request patterns<br>
+<strong>Rate Limiting</strong>: Token bucket algorithm prevents abuse while allowing burst traffic
+<strong>Input Validation</strong>: All requests are validated against security policies before processing
+<strong>Output Sanitization</strong>: Responses are automatically scrubbed of sensitive information
+<strong>Audit Trail</strong>: Complete request/response logging for security monitoring and compliance</p>
+<h3 id="future-enhancements">
+  Future Enhancements
+  <a class="heading-link" href="#future-enhancements">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>While the current implementation provides a solid foundation, I&rsquo;m actively working on several enhancements:</p>
+<ul>
+<li><strong>JWT Token Support</strong>: More sophisticated token management with expiration and refresh</li>
+<li><strong>OAuth2 Integration</strong>: Enterprise identity provider integration</li>
+<li><strong>Container Sandboxing</strong>: Isolated execution environments for enhanced security</li>
+<li><strong>WebSocket Support</strong>: Real-time communication capabilities</li>
+<li><strong>Distributed Rate Limiting</strong>: Redis-backed rate limiting for multi-instance deployments</li>
+<li><strong>Monitoring Integration</strong>: Prometheus metrics and Grafana dashboards</li>
+</ul>
+<h3 id="getting-started">
+  Getting Started
+  <a class="heading-link" href="#getting-started">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The gateway is designed to be easy to deploy and configure. A basic setup requires only:</p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip install -r requirements.txt
+</span></span><span style="display:flex;"><span>python main.py
+</span></span></code></pre></div><p>The system starts with sensible defaults and includes a test client for immediate evaluation. Production deployments can leverage the comprehensive configuration options and security policies to meet specific organizational requirements.</p>
+<p>I welcome feedback, contributions, and discussions about securing AI integrations and MCP deployments. The project represents my ongoing commitment to making AI systems more secure and enterprise-ready without sacrificing their innovative potential.</p>
+<p>You can find the full source code, documentation, and deployment guides on GitHub <a href="https://github.com/marklechner/mcpgw"  class="external-link" target="_blank" rel="noopener">here</a>.</p>
+
+  </article>
+</section>
+
+  
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2025
+     Mark Lechner 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>
