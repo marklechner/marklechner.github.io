@@ -1,6 +1,6 @@
 +++
 draft = false
-date = '2025-08-16T14:00:00+01:00'
+date = '2025-01-15T14:00:00+01:00'
 title = 'MCP Gateway'
 +++
 
